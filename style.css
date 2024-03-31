@@ -4,6 +4,10 @@
 :root{
   --logo-size: 44px;
   --header-height: calc(var(--logo-size) * 1.5);
+  --color-lightgreen: rgb(223, 232, 218);
+  --color-green: rgb(78, 165, 36);
+  --color-darkgreen: rgb(23, 66, 2);
+  --header-arrow-up-size: 20px;
   font-size: 16px;
   font-family: sans-serif;
 }
@@ -23,6 +27,9 @@ li{
   margin: 0;
   padding: 0;
 }
+.service-card-wrapper{
+  margin: 0;
+}
 /* Врапер чисто для отбития футера через флексы
 Мы тут почему-то дженерал-сайз решили использовать вместо врапера */
 .wrapper {
@@ -30,13 +37,28 @@ li{
   flex-direction: column;
   min-height: 100vh;
 }
+.btn{
+  padding: 10px 15px;
+  border: 0 solid transparent;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--color-green);
+  font-weight: 800;
+  transition: background-color 0.5s;
+}
+.btn:hover{
+  background-color: var(--color-darkgreen);
+}
+
+/* Header */
+
 /* Хедер по всей ширине, а контент в нем ограничен внутренним дивом генерал-сайзом */
-header{
+.header{
   /* Пусть занимает всю ширину, меин занимает всю за счет класса в него вписанного генерал-сайза */
   width: 100%;
   height: var(--header-height);
   background-color: #fff;
-  box-shadow: 0 2px 5px #ccc;
+  box-shadow: 0 5px 6px 1px #ccc;
   position: fixed;
   z-index: 1;
 }
@@ -57,7 +79,7 @@ header{
   display: inline-block;
   border-radius: 50%;
 }
-.logo {
+.logo{
   width: var(--logo-size);
   height: var(--logo-size);
   background-color: #000;
@@ -84,7 +106,7 @@ header{
   height: calc(var(--logo-size) * 0.8);
   border-radius: 50%;
 }
-.search {
+.search{
   margin: 0 1rem;
   background-image: url(./assets/icons/search.svg);
   background-repeat: no-repeat;
@@ -94,10 +116,13 @@ header{
 }
 .search::after{
   content: '';
+  transform: scale(0);
   position: absolute;
   z-index: -1;
 }
 .search:hover::after{
+  background-color: #eee;
+  transform: scale(1);
   animation: zoomIn;
   animation-duration: 0.5s;
 }
@@ -124,14 +149,226 @@ header{
   padding: 0 1rem;
   line-height: var(--header-height);
   transition: border-bottom-width 0.5s;
+  position: relative;
 }
-.header-nav-link:hover {
+.header-nav-link:hover{
   border-bottom-width: 3px;
 }
-.main{
-  flex-grow: 1;
-  padding-top: var(--header-height);
+.header-nav-link:has(+ .header-nav-submenu){
+  margin-right: calc(var(--header-arrow-up-size) + 2px);
 }
+.header-nav-link:hover:has(+ .header-nav-submenu){
+  border-bottom-width: 0px;
+}
+.header-nav-link:has(+ .header-nav-submenu)::after{
+  content: '';
+  width: var(--header-arrow-up-size);
+  height: var(--header-arrow-up-size);
+  background-image: url(./assets/icons/chevron-down.svg);
+  position: absolute;
+  top: calc(50% - 0.5rem - 1px);
+  right: calc(0px - 10px);
+  transition: transform 0.5s;
+}
+.header-nav-link:has(+ .header-nav-submenu):hover::after{
+  transform: rotate(0.5turn);
+}
+
+.header-nav-submenu{
+  /* display: none; */
+  opacity: 0;
+  width: 100px;
+  background-color: white;
+  transition: opacity 1s;
+}
+.header-nav-item:hover .header-nav-submenu{
+  display: block;
+  opacity: 1;
+  position: relative;
+}
+.pattern-icon{
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-image: url(./assets/icons/checkbox.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext{
+  visibility: hidden;
+  width: auto;
+  background-color: rgb(65, 65, 65);
+  color: #fff;
+  text-align: center;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.tooltip .tooltiptext::after{
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+.tooltip:hover .tooltiptext{
+  visibility: visible;
+}
+.btn-sign-in{
+  padding: 10px 20px;
+  border: 1px solid var(--color-green);
+  border-radius: 20px;
+  margin-left: 1rem;
+  color: var(--color-green);
+}
+.btn-sign-in:hover{
+  background-color: var(--color-lightgreen);
+}
+
+.content{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  margin-top: calc(var(--header-height) + 20px);
+}
+
+/* Aside */
+
+.aside{
+  width: 20%;
+}
+.horizontal-menu-item>*{
+  display: inline-block;
+}
+.horizontal-menu-item-icon{
+  width: calc(var(--logo-size) * 0.65);
+  height: calc(var(--logo-size) * 0.65);
+  background-image: url(./assets/icons/arrow-right-bold-box.svg);
+  vertical-align: middle;
+}
+.horizontal-menu-item-link{
+  padding: 10px 2px; 
+}
+
+/* Main */
+
+.main{
+  width: 80%;
+}
+.carousel{
+  height: 300px;
+  display: flex;
+  margin-bottom: 20px;
+  background-color: rgb(231, 211, 181);
+  position: relative;
+}
+.carousel::before{
+  --carousel-icon-size: 30px;
+  content: '';
+  width:  var(--carousel-icon-size);
+  height: var(--carousel-icon-size);
+  background-image: url(./assets/icons/chevron-left.svg);
+  position: absolute;
+  top: calc(50% - (var(--carousel-icon-size)/2));
+  left: 0;
+}
+.carousel::after{
+  --carousel-icon-size: 30px;
+  content: '';
+  width:  var(--carousel-icon-size);
+  height: var(--carousel-icon-size);
+  background-image: url(./assets/icons/chevron-right.svg);
+  position: absolute;
+  top: calc(50% - (var(--carousel-icon-size)/2));
+  right: 0;
+}
+.carousel-text{
+  padding: 40px;
+}
+.carousel-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Services */
+
+.services-wrapper{
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.service{
+  flex-basis: 47%;
+  margin-bottom: 20px;
+}
+.service-card-wrapper{
+  display: inline-flex;
+  justify-content: space-between;
+}
+.service-title{
+  color: rgb(54, 54, 54);
+  font-size: 1em;
+}
+.service-card-image{
+  flex: 0 0 100px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+.service-card-description{
+  display: inline-block;
+}
+
+/* Service form */
+
+.service-form-input{
+}
+.service-title{
+}
+.service-form{
+  display: flex;
+  justify-content: space-between;
+}
+.service-form-input{
+  width: 92%;
+  padding: 5px;
+  border: 1px solid rgb(254, 254, 254, 0.4);
+  border-style: hidden hidden outset hidden;
+}
+.service-form-input::placeholder{
+  color: rgb(179, 179, 179);
+}
+.service-form-button{
+  width: 27px;
+  height: 27px;
+  padding: 5px;
+  border: 0 solid transparent;
+  border-radius: 5px;
+  background-image: url(./assets/icons/chevron-right.svg);
+  vertical-align: middle;
+  box-shadow: 0 0 4px rgb(197, 197, 197);
+}
+.service-form-tip{
+  color: gray;
+  font-size: 0.7em;
+  font-weight: 0;
+}
+
+/* Chat */
+
 .btn-chat,
 .chat{
   position: fixed;
@@ -142,19 +379,22 @@ header{
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: green;
+  background-color: var(--color-green);
   bottom: 30px;
 }
 .chat{
   bottom: -100vh;
   padding: 2rem;
-  background-color: green;
+  background-color: var(--color-green);
 }
 .btn-chat:hover+.chat{
   bottom: 85px;
   animation: backInUp;
   animation-duration: 0.5s;
 }
+
+/* Footer */
+
 .footer{
   text-align: center;
 }
