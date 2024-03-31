@@ -39,12 +39,6 @@ button{
 
 /* Classes */
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  /* Футер має бути знизу екрану */
-  min-height: 100vh;   
-}
 .general-size {
   min-width: 520px;
   max-width: 1264px;
@@ -55,6 +49,12 @@ button{
   display: flex;
   align-items: center;
   height: 100%;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  /* Футер має бути знизу екрану */
+  min-height: 100vh;   
 }
 .btn{
   padding: 0.625rem 0.938rem;
@@ -96,6 +96,12 @@ button{
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+.footer{
+  width: 100%;
+  padding: 30px;
+  border: 1px solid lightgray;
+  color: rgb(138, 138, 138);
 }
 .footer{
   text-align: center;
