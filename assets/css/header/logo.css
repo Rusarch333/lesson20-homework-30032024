@@ -1,0 +1,24 @@
+.logo,
+.logo::after{
+  border-radius: 50%;
+}
+.logo{
+  width: var(--logo-size);
+  height: var(--logo-size);
+  color: rgb(255, 255, 255);
+  background-color: #000;
+  font-size: calc(var(--logo-size)/2);
+  line-height: var(--logo-size);
+  text-align: center;
+  position: relative;
+}
+.logo::after{
+  content: '';
+  background-image: linear-gradient(0, yellow 50%, blue 50%);
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  left: -3px;
+  right: -3px;
+  z-index: -1;
+}

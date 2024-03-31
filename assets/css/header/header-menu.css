@@ -1,0 +1,70 @@
+.header-menu{
+  flex: 1 0;
+}
+.header-menu,
+.header-menu *{
+  /* 
+    Для того, щоб всі елементи займали повну висоту 
+    header, для створення нижнього бордера 
+    при hover на menu-link
+  */
+  height: inherit;
+}
+.header-menu-list{
+  /* Для відбиття елементів у кут праворуч */
+  display: flex;
+  align-items: center;
+}
+.header-menu-item:last-child{
+  /* Відбиваємо елемент праворуч*/
+  margin-left: auto;
+}
+.header-menu-link{
+  display: inline-block;
+  padding: 0 1rem;
+  /* Border будемо відображати тільки при наведенні */
+  border-bottom: 0 solid #999;
+  line-height: var(--header-height);
+  position: relative;
+  transition: border-bottom-width 0.5s;
+}
+.header-menu-link:hover{
+  border-bottom-width: 3px;
+}
+.header-menu-submenu{
+  opacity: 0;
+  width: 100px;
+  background-color: rgb(255, 255, 255);
+  transition: opacity 1s;
+}
+/* Відображаємо submenu при наведенні */
+.header-menu-item:hover .header-menu-submenu{
+  opacity: 1;
+  position: relative;
+}
+/* 
+  Прибираємо border-bottom, якщо link 
+  у режимі hover пов'язаний із submenu 
+*/
+.header-menu-link:hover:has(+ .header-menu-submenu){
+  border-bottom-width: 0px;
+}
+/* Малюємо стрілочку для link з submenu */
+.header-menu-link:has(+ .header-menu-submenu)::after{
+  content: '';
+  width: var(--header-arrow-up-size);
+  height: var(--header-arrow-up-size);
+  background-image: url(/assets/icons/header/chevron-down.svg);
+  position: absolute;
+  top: calc(50% - 0.5rem - 1px);
+  right: calc(0px - 10px);
+  transition: transform 0.25s;
+}
+/* Відступ від стрілки підменю */
+.header-menu-link:has(+ .header-menu-submenu){
+  margin-right: calc(var(--header-arrow-up-size) + 0.125rem);
+}
+/* При наведенні на лінк з підменю - повертаємо cтрілку на півоберту */
+.header-menu-link:has(+ .header-menu-submenu):hover::after{
+  transform: rotate(0.5turn);
+}

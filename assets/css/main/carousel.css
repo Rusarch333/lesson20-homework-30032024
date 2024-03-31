@@ -1,0 +1,36 @@
+.carousel-link{
+  display: flex;
+  height: 300px;
+  margin-bottom: 1.25rem;
+  background-color: rgb(231, 211, 181);
+  position: relative;
+}
+/* Cтрілочка ліворуч */
+.carousel-link::before{
+  content: '';
+  width:  var(--carousel-icon-size);
+  height: var(--carousel-icon-size);
+  background-image: url(/assets/icons/main/chevron-left.svg);
+  cursor: pointer;
+  position: absolute;
+  top: calc(50% - (var(--carousel-icon-size)/2));
+  left: 0;
+}
+/* Cтрілочка праворуч */
+.carousel-link::after{
+  content: '';
+  width:  var(--carousel-icon-size);
+  height: var(--carousel-icon-size);
+  background-image: url(/assets/icons/main/chevron-right.svg);
+  cursor: pointer;
+  position: absolute;
+  top: calc(50% - (var(--carousel-icon-size)/2));
+  right: 0;
+}
+.carousel-text{
+  padding: 2.5rem;
+}
+.carousel-image{
+  width: 100%;
+  height: 100%;
+}

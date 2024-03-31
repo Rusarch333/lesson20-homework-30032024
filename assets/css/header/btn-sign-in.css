@@ -1,0 +1,11 @@
+.btn-sign-in{
+  padding: 0.625rem 1.25rem;
+  border: 1px solid var(--color-green);
+  border-radius: 20px;
+  margin-left: 1rem;
+  color: var(--color-green);
+  transition: background-color 0.25s;
+}
+.btn-sign-in:hover{
+  background-color: var(--color-lightgreen);
+}

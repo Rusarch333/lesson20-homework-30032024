@@ -4,35 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Інтернет-банк, доступний кожному</title>
-    <link rel="stylesheet" href="./assets/css/animate.min.css">
-    <link rel="stylesheet" href="./style.css" />
     <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/animate.min.css"/>
+    <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="./assets/css/tooltip-up.css"/>
+    <link rel="stylesheet" href="./assets/css/header/logo.css"/>
+    <link rel="stylesheet" href="./assets/css/header/search.css"/>
+    <link rel="stylesheet" href="./assets/css/header/header-menu.css"/>
+    <link rel="stylesheet" href="./assets/css/header/pattern-icon.css"/>
+    <link rel="stylesheet" href="./assets/css/header/btn-sign-in.css"/>
+    <link rel="stylesheet" href="./assets/css/aside/horizontal-menu.css"/>
+    <link rel="stylesheet" href="./assets/css/main/carousel.css"/>
+    <link rel="stylesheet" href="./assets/css/main/service.css"/>
+    <link rel="stylesheet" href="./assets/css/main/service-form.css"/>
+    <link rel="stylesheet" href="./assets/css/chat.css"/>
+    <link rel="stylesheet" href="./assets/css/footer/footer.css"/>
   </head>
   <body>
-     <div class="wrapper">
+    <!-- Для відбиття футера -->
+    <div class="wrapper">
       <header class="header">
-        <!-- В виде дива, так-как хедер на весь екран и внутри все ограничено контейнером дива
-        А меин дженерал сайз в виде класса, так-как тут нам никакие тени играницы, плашки, 
-        как в случае с хедером на всю ширину не надо, достаточно просто ограничить текст контейнером -->
         <div class="general-size vertical-align">
-          <a href="" class="logo">24</a>
+          <a href="#" class="logo">24</a>
           <span class="search"></span>
-          <nav class="header-nav">
-            <ul class="header-nav-list">
-              <li class="header-nav-item"><a class="header-nav-link" href="" >Гаманець</a></li>
-              <li class="header-nav-item">
-                <a class="header-nav-link" href="" >Сервіси</a>
-                <ul class="header-nav-submenu">
+          <nav class="header-menu">
+            <ul class="header-menu-list">
+              <li class="header-menu-item"><a class="header-menu-link" href="#" >Гаманець</a></li>
+              <li class="header-menu-item">
+                <a class="header-menu-link" href="#" >Сервіси</a>
+                <ul class="header-menu-submenu">
                   Some submenu items..
                 </ul>
               </li>
-              <li class="header-nav-item"><a class="header-nav-link" href="">Архів</a></li>
-              <li class="header-nav-item"><a class="header-nav-link" href="">40.0/40.1</a></li>
+              <li class="header-menu-item"><a class="header-menu-link" href="#">Архів</a></li>
+              <li class="header-menu-item"><a class="header-menu-link" href="#">40.0/40.1</a></li>
             </ul>
           </nav>
             <span class="tooltip">
               <span class="pattern-icon"></span>
-              <span class="tooltiptext">Шаблони</span>
+              <span class="tooltip-up">Шаблони</span>
             </span>
           <button class="btn-sign-in">Вхід</button>
         </div>
@@ -120,14 +131,16 @@
         </aside>
         <main class="main">
           <article class="carousel">
-            <!-- ?????????????????????????????????????????????????????????? -->
-            <div class="carousel-text"> 
-              <h2>Підтримайте бюджет України! Придбайте військові ОВДП!</h2>
-              <p>Ліцензія НКЦПФР на здвійснення дилерської діяльності серії АЕ #185058 від 17.10.2012 (строк дії із 17.10.2012 необмежений)</p>
-            </div>
-            <img src="./assets/images/ukrainian-soldiers.png" alt="Ukrainian soldiers">
+            <a class="carousel-link" href="#">
+              <div class="carousel-text"> 
+                <h2>Підтримайте бюджет України! Придбайте військові ОВДП!</h2>
+                <p>Ліцензія НКЦПФР на здвійснення дилерської діяльності серії АЕ #185058 від 17.10.2012 (строк дії із 17.10.2012 необмежений)</p>
+              </div>
+              <img class="carousel-image" src="./assets/images/ukrainian-soldiers.png" alt="Ukrainian soldiers">
+            </a>
           </article>
-          <div class="services-wrapper">
+          <div class="services">
+            <!-- Рядок №1 -->
             <article class="service">
               <h3 class="service-title">Digital картки від ПриватБанку</h3>
               <figure class="service-card-wrapper">
@@ -144,38 +157,39 @@
               </figure>
               <button class="btn">Додати картку</button>
             </article>
-            <!-- Row2 -->
+            <!-- Рядок №2 -->
             <article class="service">
               <h3 class="service-title">Переказ на картку</h3>
               <form class="service-form">
                 <input class="service-form-input" type="text" name="card-transfer" placeholder="0000 0000 0000 0000">
                 <button class="service-form-button" type="submit"></button>
               </form>
-              <p class="service-form-tip">VISA/MasterCard українських та закордоних банків</p>
+              <p class="service-tip">VISA/MasterCard українських та закордоних банків</p>
             </article>
             <article class="service">
               <h3 class="service-title">Платіж</h3>
               <form class="service-form">
-                <input class="service-form-input" type="text" name="card-transfer" placeholder="UAXXXXXXXXXXXXXXXXXXXXXXXXXXX">
+                <input class="service-form-input" type="text" name="payment" placeholder="UAXXXXXXXXXXXXXXXXXXXXXXXXXXX">
                 <button class="service-form-button" type="submit"></button>
               </form>
-              <p class="service-form-tip">IBAN, ЄДРПОУ, номер рахунку або назва одержувача</p>
+              <p class="service-tip">IBAN, ЄДРПОУ, номер рахунку або назва одержувача</p>
             </article>
+            <!-- Рядок №3 -->
             <article class="service">
               <h3 class="service-title">Переказ на картку</h3>
               <form class="service-form">
                 <input class="service-form-input" type="text" name="card-transfer" placeholder="0000 0000 0000 0000">
                 <button class="service-form-button" type="submit"></button>
               </form>
-              <p class="service-form-tip">VISA/MasterCard українських та закордоних банків</p>
+              <p class="service-tip">VISA/MasterCard українських та закордоних банків</p>
             </article>
             <article class="service">
               <h3 class="service-title">Платіж</h3>
               <form class="service-form">
-                <input class="service-form-input" type="text" name="card-transfer" placeholder="UAXXXXXXXXXXXXXXXXXXXXXXXXXXX">
+                <input class="service-form-input" type="text" name="payment" placeholder="UAXXXXXXXXXXXXXXXXXXXXXXXXXXX">
                 <button class="service-form-button" type="submit"></button>
               </form>
-              <p class="service-form-tip">IBAN, ЄДРПОУ, номер рахунку або назва одержувача</p>
+              <p class="service-tip">IBAN, ЄДРПОУ, номер рахунку або назва одержувача</p>
             </article>
           </div>
         </main>
@@ -186,7 +200,7 @@
         <p>Online help</p>
       </div>
       <footer>
-        <div class="footer">2024</div>
+        <div class="footer">- Privat24 підвал -</div>
       </footer>
      </div>
   </body>

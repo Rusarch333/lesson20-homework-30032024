@@ -1,0 +1,27 @@
+.btn-chat,
+.chat{
+  position: fixed;
+  z-index: 2;
+  right: 20px;
+}
+.btn-chat{
+  padding: 1.875rem;
+  border-radius: 50%;
+  background-color: var(--color-green);
+  background-image: url(/assets/icons/chat/chat-processing.svg);
+  bottom: 30px;
+}
+.chat{
+  padding: 2rem;
+  background-color: var(--color-green);
+  /* 
+    Чат вилітає знизу до гори через 
+    pos-bottom+backInUp, початкова позиція 
+  */
+  bottom: -100vh;
+}
+.btn-chat:hover+.chat{
+  bottom: 100px;
+  animation: backInUp;
+  animation-duration: 0.5s;
+}

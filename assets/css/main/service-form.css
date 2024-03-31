@@ -1,0 +1,33 @@
+.service-form{
+  display: flex;
+  justify-content: space-between;
+}
+.service-form>*{
+  padding: 0.75rem;
+}
+.service-form-input{
+  width: 88%;
+  border: 1px solid rgb(254, 254, 254, 0.4);
+  border-style: hidden hidden outset hidden;
+}
+.service-form-input::placeholder{
+  color: rgb(179, 179, 179);
+}
+.service-form-button{
+  width: 39px;
+  height: 39px;
+  border-width: 0;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgb(179, 179, 179);
+  position: relative;
+}
+.service-form-button::before{
+  content: '';
+  width: 25px;
+  height: 25px;
+  background-image: url(/assets/icons/main/chevron-right.svg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

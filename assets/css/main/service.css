@@ -1,0 +1,25 @@
+.service{
+  flex-basis: 47%;
+  margin-bottom: 1.25rem;
+}
+.service-title{
+  color: var(--color-darkgrey);
+  font-size: 1rem;
+}
+.service-card-wrapper{
+  display: inline-flex;
+  justify-content: space-between;
+  margin: 0;
+}
+.service-card-image{
+  flex: 0 0 100px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 0.938rem;
+  margin-bottom: 0.625rem;
+}
+.service-tip{
+  color: gray;
+  font-size: 0.7rem;
+  font-weight: 0;
+}
