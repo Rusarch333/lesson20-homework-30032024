@@ -159,16 +159,26 @@
             <!-- Рядок №2 -->
             <article class="service">
               <h3 class="service-title">Переказ на картку</h3>
-              <form class="service-form">
-                <input class="service-form-input" type="text" name="card-transfer" placeholder="0000 0000 0000 0000">
+              <form class="service-form" action="">
+                <input class="service-form-input" 
+                type="text" 
+                name="card-transfer" 
+                placeholder="0000 0000 0000 0000"
+                pattern="\d{16}"
+                required/>
                 <button class="service-form-button" type="submit"></button>
               </form>
               <p class="service-tip">VISA/MasterCard українських та закордоних банків</p>
             </article>
             <article class="service">
               <h3 class="service-title">Платіж</h3>
-              <form class="service-form">
-                <input class="service-form-input" type="text" name="payment" placeholder="UAXXXXXXXXXXXXXXXXXXXXXXXXXXX">
+              <form class="service-form" action="">
+                <input class="service-form-input" 
+                type="text" 
+                name="payment" 
+                placeholder="UAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                pattern="^UA\d{31}$"
+                required/>
                 <button class="service-form-button" type="submit"></button>
               </form>
               <p class="service-tip">IBAN, ЄДРПОУ, номер рахунку або назва одержувача</p>
@@ -176,16 +186,26 @@
             <!-- Рядок №3 -->
             <article class="service">
               <h3 class="service-title">Переказ на картку</h3>
-              <form class="service-form">
-                <input class="service-form-input" type="text" name="card-transfer" placeholder="0000 0000 0000 0000">
+              <form class="service-form" action="">
+                <input class="service-form-input" 
+                type="text" 
+                name="card-transfer" 
+                placeholder="0000 0000 0000 0000"
+                pattern="\d{16}"
+                required/>
                 <button class="service-form-button" type="submit"></button>
               </form>
               <p class="service-tip">VISA/MasterCard українських та закордоних банків</p>
             </article>
             <article class="service">
               <h3 class="service-title">Платіж</h3>
-              <form class="service-form">
-                <input class="service-form-input" type="text" name="payment" placeholder="UAXXXXXXXXXXXXXXXXXXXXXXXXXXX">
+              <form class="service-form" action="">
+                <input class="service-form-input" 
+                type="text" 
+                name="payment" 
+                placeholder="UAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                pattern="^UA\d{31}$"
+                required/>
                 <button class="service-form-button" type="submit"></button>
               </form>
               <p class="service-tip">IBAN, ЄДРПОУ, номер рахунку або назва одержувача</p>
