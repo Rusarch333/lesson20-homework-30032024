@@ -5,26 +5,23 @@
   background-color: rgb(231, 211, 181);
   position: relative;
 }
-/* Cтрілочка ліворуч */
-.carousel-link::before{
-  content: '';
-  width:  var(--carousel-icon-size);
-  height: var(--carousel-icon-size);
-  background-image: url(/assets/icons/main/chevron-left.svg);
-  cursor: pointer;
-  position: absolute;
-  top: calc(50% - (var(--carousel-icon-size)/2));
-  left: 0;
-}
-/* Cтрілочка праворуч */
+/* Cтрілочки */
+.carousel-link::before,
 .carousel-link::after{
   content: '';
   width:  var(--carousel-icon-size);
   height: var(--carousel-icon-size);
-  background-image: url(/assets/icons/main/chevron-right.svg);
   cursor: pointer;
   position: absolute;
   top: calc(50% - (var(--carousel-icon-size)/2));
+  z-index: 1;
+}
+.carousel-link::before{
+  background-image: url(/assets/icons/main/chevron-left.svg);
+  left: 0;
+}
+.carousel-link::after{
+  background-image: url(/assets/icons/main/chevron-right.svg);
   right: 0;
 }
 .carousel-text{

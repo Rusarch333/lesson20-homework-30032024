@@ -3,7 +3,6 @@
   display: inline-block;
 }
 .horizontal-menu-item-icon{
-  display:inline-block;
   width: calc(var(--logo-size) * 0.75);
   height: calc(var(--logo-size) * 0.75);
   background-image: url(/assets/icons/aside/arrow-right-bold-box.svg);

@@ -1,18 +1,17 @@
 .btn-chat,
 .chat{
+  padding: 1.875rem;
   position: fixed;
-  z-index: 2;
   right: 20px;
+  z-index: 2;
 }
 .btn-chat{
-  padding: 1.875rem;
   border-radius: 50%;
   background-color: var(--color-green);
   background-image: url(/assets/icons/chat/chat-processing.svg);
   bottom: 30px;
 }
 .chat{
-  padding: 2rem;
   background-color: var(--color-green);
   /* 
     Чат вилітає знизу до гори через 
